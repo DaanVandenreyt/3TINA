@@ -1,6 +1,1 @@
-<h1>Contacts</h1>
-<main>
-  <app-contact></app-contact>
-  <app-contact></app-contact>
-  <app-contact></app-contact>
-</main>
+<app-contact [contact]="myContact" (onSubmit)="handleData($event)"></app-contact>

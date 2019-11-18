@@ -1,21 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Contact } from '../models/contact.model';
+
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
-export class ContactComponent implements OnInit {
-  name: string;
-  email: string;
-  phone: string;
+export class ContactComponent{
+  @Input() contact: Contact;
+  @Output() onSubmit: EventEmitter<Contact> = new EventEmitter();
 
-  constructor() { }
+  onClick(): void{
+    console.log('Button clicked. Status van favorite is:' + this.contact.isFavorite);
+  }
 
-  ngOnInit() {
-    this.name = "John Doe";
-    this.email = "john.doe@gmail.com";
-    this.phone = "+1-202-555-0121";
+  submit(){
+    this.onSubmit.emit(this.contact);
   }
 
 }

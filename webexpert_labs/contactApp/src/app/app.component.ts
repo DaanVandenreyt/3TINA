@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Contact } from './models/contact.model'
 
 @Component({
@@ -8,16 +8,15 @@ import { Contact } from './models/contact.model'
 })
 
 export class AppComponent{
-  myContact: Contact;
+  contactList : Contact[];
 
   ngOnInit(): void {
-    this.myContact = new Contact(
-      'John Doe', 
-      'john.doe@gmail.com', 
-      '01166424893',
-       true,
-      'assets/avatar.png'
-      );
+    this.contactList = [
+      new Contact('jane doe', 'jane.doe@mail.com', '0113448239', true, '../assets/avatar.jpg'),
+      new Contact('john doe', 'john.doe@mail.com', '011424839', false, 'assets/avatar.jpg'),
+      new Contact('Dries Swinnen', 'dries.swinnen@pxl.be', '011664839', true, 'assets/avatar.jpg')
+    ];
+  
   }
 
   handleData(event: Contact){

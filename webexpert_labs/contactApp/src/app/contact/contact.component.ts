@@ -10,9 +10,10 @@ import { Contact } from '../models/contact.model';
 export class ContactComponent{
   @Input() contact: Contact;
   @Output() onSubmit: EventEmitter<Contact> = new EventEmitter();
+  isFavorite: boolean = false;
 
   onClick(): void{
-    console.log('Button clicked. Status van favorite is:' + this.contact.isFavorite);
+    console.log('Button clicked. Status van favorite is:' + this.isFavorite);
   }
 
   submit(){

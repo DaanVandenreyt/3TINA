@@ -51,3 +51,16 @@ button:hover {
 button:focus {
 	outline: 0;
 }
+
+
+
+/*classes*/
+.favorite{
+	color: #900;
+}
+
+.avatar {
+	float: left;
+	margin-right: 0.5rem;
+	width: 50px;
+}

@@ -1,1 +1,2 @@
-<app-contact [contact]="myContact" (onSubmit)="handleData($event)"></app-contact>
+<app-contact *ngFor="let contact of contactList;" 
+                [contact]="contact"></app-contact>

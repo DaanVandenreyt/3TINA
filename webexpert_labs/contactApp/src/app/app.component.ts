@@ -12,7 +12,7 @@ export class AppComponent{
 
   ngOnInit(): void {
     this.contactList = [
-      new Contact('jane doe', 'jane.doe@mail.com', '0113448239', true, '../assets/avatar.jpg'),
+      new Contact('jane doe', 'jane.doe@mail.com', '0113448239', true, 'assets/avatar.jpg'),
       new Contact('john doe', 'john.doe@mail.com', '011424839', false, 'assets/avatar.jpg'),
       new Contact('Dries Swinnen', 'dries.swinnen@pxl.be', '011664839', true, 'assets/avatar.jpg')
     ];
@@ -21,6 +21,10 @@ export class AppComponent{
 
   handleData(event: Contact){
     console.log('Recieved data!', event);
+  }
+
+  createContact(event: Contact) {
+    this.contactList.push(event);
   }
 
 }

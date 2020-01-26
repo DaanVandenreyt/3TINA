@@ -1,22 +1,21 @@
-<form #form="ngForm" (ngSubmit)="submit(form)">
-    <input type="text" name="name" placeholder="Name"
-          [(ngModel)]="name" minlength="3" required>
-    <p *ngIf="form.controls.name?.errors?.minlength" class="error">Minimum 3 characters.</p>
-    <p *ngIf="form.controls.name?.errors?.required" class="error">Required.</p>
-    <input type="email" name="email" placeholder="name@domain.com"
-          [(ngModel)]="email" pattern="[a-zA-Z0-9_\.]+@[a-zA-Z0-9_\.]+" required>
-    <p *ngIf="form.controls.email?.errors?.pattern" class="error">Invalid email.</p>
-    <p *ngIf="form.controls.email?.errors?.required" class="error">Required.</p>
-    <input type="tel" name="phone" placeholder="Phone number" 
-          [(ngModel)]="phone" minlength="9" required>
-    <p *ngIf="form.controls.phone?.errors?.minlength" class="error">Minimum 9 characters.</p>
-    <p *ngIf="form.controls.phone?.errors?.required" class="error">Required.</p>
-    <input type="text" name="avatar"
-          placeholder="avatar url" [(ngModel)]="avatar">
-    <input type="checkbox" name="isFavorite"
-          id="favorite" [(ngModel)]="isFavorite">
-    <label for="isFavorite">Favorite</label><br> 
-     
-    <button type="submit" [disabled]="form.invalid">Submit</button>
-    </form>
-    
+<form [formGroup]="form" (ngSubmit)="submit(form)">
+      <input type="text" name="name" placeholder="Name" formControlName="name">
+            <p *ngIf="form.get('name').hasError('minlength')" class="error">Minimum 3 characters.</p>
+            <p *ngIf="form.get('name').hasError('required')" class="error">Required.</p>
+      <input type="email" name="email" placeholder="name@domain.com" formControlName="email">
+            <p *ngIf="form.get('email').hasError('pattern')" class="error">Invalid email.</p>
+            <p *ngIf="form.get('email').hasError('required')" class="error">Required.</p>
+      <input type="tel" name="phone" placeholder="Phone number" formControlName="phone">
+            <p *ngIf="form.get('phone').hasError('minlength')" class="error">Minimum 9 characters.</p>
+            <p *ngIf="form.get('phone').hasError('required')" class="error">Required.</p>
+      <input type="text" name="avatar" formControlName="avatar">
+      <input type="checkbox" name="isFavorite" formControlName="isFavorite">
+      <label for="isFavorite">Favorite</label><br> 
+       
+      <button type="submit" [disabled]="form.invalid">Submit</button>
+</form>
+      
+
+ 
+
+ 

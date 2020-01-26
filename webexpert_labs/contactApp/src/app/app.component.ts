@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from './models/contact.model'
+import {ContactService } from './services/contact.service'
+
 
 @Component({
   selector: 'app-root',
@@ -9,14 +11,11 @@ import { Contact } from './models/contact.model'
 
 export class AppComponent{
   contactList : Contact[];
+  onlyFavorites: boolean;
 
+  constructor(private service: ContactService){}
   ngOnInit(): void {
-    this.contactList = [
-      new Contact('jane doe', 'jane.doe@mail.com', '0113448239', true, 'assets/avatar.jpg'),
-      new Contact('john doe', 'john.doe@mail.com', '011424839', false, 'assets/avatar.jpg'),
-      new Contact('Dries Swinnen', 'dries.swinnen@pxl.be', '011664839', true, 'assets/avatar.jpg')
-    ];
-  
+      this.fetchContactList(this.onlyFavorites);
   }
 
   handleData(event: Contact){
@@ -24,7 +23,24 @@ export class AppComponent{
   }
 
   createContact(event: Contact) {
-    this.contactList.push(event);
+    this.service.addContact(event)
+                .subscribe(() =>
+                    this.fetchContactList(this.onlyFavorites))
+  }
+ 
+  fetchContactList(onlyFav: boolean): void {
+    this.service.getContactList(onlyFav).subscribe(data => {
+      this.contactList = data;
+    });
+  }
+
+  handleUpdate(): void {
+    this.fetchContactList(this.onlyFavorites);
+  }
+
+  toggleView(onlyFav : boolean){
+    this.onlyFavorites = !onlyFav;
+    this.fetchContactList(this.onlyFavorites);
   }
 
 }

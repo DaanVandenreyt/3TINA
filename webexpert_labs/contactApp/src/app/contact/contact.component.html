@@ -1,13 +1,13 @@
 <div>
   <h2>
-    <span *ngIf="contact.isFavorite" class="favorite">&#9733;</span> {{contact.name}}
+    <span *ngIf="contact.isFavorite" class="favorite">&#9733;</span> {{ contact.name | capitalize }}
   </h2>  
   <ul>
     <li>Email: {{ contact.email }}</li>
     <li>Phone: {{ contact.phone }}</li>
   </ul>
 </div>
-<input type="checkbox" name="isFavorite" id="isFavorite" [(ngModel)]="contact.isFavorite">
-
+<input type="checkbox" name="isFavorite" id="isFavorite" [(ngModel)]="contact.isFavorite" (click)="toggleFavorite(contact.id, contact.isFavorite)">
+    <label for="isFavorite" [class.favorite]="contact.isFavorite">Favorite</label>
 <img [src]="contact.avatar" alt="avatar">
 

@@ -45,15 +45,15 @@ Deze aanpak is handig voor kleinere datasets, maar wordt niet echt gebruikt voor
 
 #### Bias vs Variance
 
-Wanneer een model een te hoge __bias__ heeft, zien we _underfittitng_ als resultaat. Dit kan door verschillende oorzaken voorkomen, bijvoorbeeld te weinig features laten meetellen of meer aandact vestigen op enkele features. Dit kan ook voorkomen wanneer de data in de training set biased is (vb 7 kattten, 1 hond).
+Wanneer een model een te hoge __bias__ heeft, zien we _underfittitng_ als resultaat. Het model is te hard aan het veralgemenen op een fout punt en gaat sterk 1 kant opleunen. Men kan het vergelijken met bevooroordeeld zijn. Dit kan door verschillende oorzaken voorkomen, bijvoorbeeld te weinig features laten meetellen of meer aandacht vestigen op enkele features. Dit kan ook voorkomen wanneer de data in de training set biased is (vb 7 katten, 1 hond).
 
-Wanneer een model een te hoge __variance_ heeft, zien we dan weer _overfitting_ opdagen. Ook dit heeft meerdere mogelijke oorzaken. Als we naar de features kijken kan het zijn dat er te veel features meegeteld worden, denk aan verschillende features die gecorreleerd zijn en dus min of meer gelijkaardige info weergeven. Ook kan dit voorkomen wanneer er te lang wordt getraind met dezelfde data, hiervoor is het eerdergenoemde _K-fold_ _cross-validation_ een mogelijke oplossing.
+Wanneer een model een te hoge __variance__ heeft, zien we dan weer _overfitting_ opdagen. Er is te weinig veralgemening en het model gaat zeer hard schommelen. Bij regressie zou dit bijvoorbeeld kunnen resulteren een zeer sterk fluctuerende grafiek. Ook dit heeft meerdere mogelijke oorzaken. Als we naar de features kijken kan het zijn dat er te veel features meegeteld worden, denk aan verschillende features die gecorreleerd zijn en dus min of meer gelijkaardige info weergeven. Ook kan dit voorkomen wanneer er te lang wordt getraind met dezelfde data, hiervoor is het eerdergenoemde _K-fold_ _cross-validation_ een mogelijke oplossing.
 
 
 
 #### Wat is data imputation?
 
-_Data_ _imputation_ is het aanpassen van _missing_ _values_. Wanneer je dataset groot genoeg, kan je de records met *missing values* gewoon laten wegvallen, maar dat is niet altijd het geval. Wanneer dit niet kan, wordt de missing data ingevuld door een statistisch kengetal (gemiddelde, mediaan, min, max, modus...) of met een regressielijn en interpolatie.
+_Data_ _imputation_ is het aanpassen van _missing_ _values_. Wanneer je dataset groot genoeg is, kan je de records met *missing values* gewoon laten wegvallen, maar dat is niet altijd het geval. Wanneer dit niet kan, wordt de missing data ingevuld door een statistisch kengetal (gemiddelde, mediaan, min, max, modus...) of met een regressielijn en interpolatie.
 
 
 
@@ -69,7 +69,7 @@ Ook bij _standaardisatie_ wordt de data hervormd, maar nu door het gemiddelde en
 
 #### Een neuraal netwerk is een hiërarchisch model
 
-Een neuraal netwerk is opgebouwd uit verschillende lagen. HIerbij gaat iedere laag 'simpele' berekeningen doen met de data doorgegeven door de vorige laag, met steeds complexere resultaten als resultaat. Omdat iedere laad dus verderbouwt op de resultaten van de vorige laag, spreken we van een hiërarchisch model.
+Een neuraal netwerk is opgebouwd uit verschillende lagen. HIerbij gaat iedere laag 'simpele' berekeningen doen met de data doorgegeven door de vorige laag, wat met meerdere lagen tot een complex resutaat zal leiden. Omdat iedere laag			 dus verderbouwt op de resultaten van de vorige laag, spreken we van een hiërarchisch model.
 
 
 

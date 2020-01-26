@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Contact } from '../models/contact.model';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 @Component({
@@ -8,8 +9,16 @@ import { Contact } from '../models/contact.model';
   styleUrls: ['./contact-form.component.css']
 })
 export class ContactFormComponent implements OnInit {
-  ngOnInit(): void {
-    throw new Error("Method not implemented.");
+  form: FormGroup;
+  
+  ngOnInit() {
+    this.form = new FormGroup({
+      'name': new FormControl(null, [Validators.required, Validators.minLength(3)]),
+      'email': new FormControl(null, [Validators.required, Validators.pattern(/^[a-z0-9_\.]+@[a-z0-9_\.]+/i)]),
+      'phone': new FormControl(null, [Validators.required, Validators.minLength(9)]),
+      'isFavorite': new FormControl(false),
+      'avatar': new FormControl(null)
+    });
   }
   @Output() onSubmit: EventEmitter<Contact> = new EventEmitter();
 
